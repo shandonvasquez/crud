@@ -1,7 +1,6 @@
 
-// flight.route.js
 import { Router } from 'express';
-import flightController from './flight.controller.js';
+import flightController from './flight.controller.j';
 
 const router = Router();
 

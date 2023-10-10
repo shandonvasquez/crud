@@ -42,13 +42,13 @@ const getFlightById = async (req, res) => {
 const updateFlight = async (req, res) => {
   const { id } = req.params;
   try {
-    const flight = await Flight.findByPk(id); // Busca el vuelo por ID en la base de datos
+    const flight = await Flight.findByPk(id); // Busca id
     if (!flight) {
       res.status(404).json({ message: 'Vuelo no encontrado' });
       return;
     }
-    await flight.update(req.body); // Actualiza el vuelo con los datos proporcionados
-    res.status(200).json(flight); // Responde con el vuelo actualizado
+    await flight.update(req.body); 
+    res.status(200).json(flight); // Responde V actual
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error al actualizar el vuelo por ID' });
@@ -59,13 +59,13 @@ const updateFlight = async (req, res) => {
 const deleteFlight = async (req, res) => {
   const { id } = req.params;
   try {
-    const flight = await Flight.findByPk(id); // Busca el vuelo por ID en la base de datos
+    const flight = await Flight.findByPk(id);
     if (!flight) {
       res.status(404).json({ message: 'Vuelo no encontrado' });
       return;
     }
-    await flight.destroy(); // Elimina el vuelo de la base de datos
-    res.status(204).json(); // Responde con un código 204 (Sin contenido)
+    await flight.destroy(); 
+    res.status(204).json(); 
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error al eliminar el vuelo por ID' });
